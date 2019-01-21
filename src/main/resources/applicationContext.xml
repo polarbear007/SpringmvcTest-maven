@@ -16,7 +16,7 @@
 	<!-- 配置dataSource -->
 	<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
 		<property name="driverClass" value="com.mysql.cj.jdbc.Driver"/>
-		<property name="jdbcUrl" value="jdbc:mysql:///springmvc?serverTimezone=Aisa/Shanghai&amp;useSSL=false"/>
+		<property name="jdbcUrl" value="jdbc:mysql:///springmvc?serverTimezone=Asia/Shanghai&amp;useSSL=false"/>
 		<property name="user" value="root"/>
 		<property name="password" value="root" />
 	</bean>
@@ -26,6 +26,12 @@
 		<property name="dataSource" ref="dataSource"/>
 		<!-- 虽然大部分配置都已经转到spring 配置文件，但是最好还是保留mybatis配置文件，然后引入一下 -->
 		<property name="configLocation" value="classpath:mybatis-config.xml" />
+		
+		<property name="plugins">
+			<array>
+				<bean class="com.github.pagehelper.PageInterceptor" />
+			</array>
+		</property>
 	</bean>
 	
 	<!-- 配置事务管理器 -->
@@ -33,14 +39,15 @@
 		<property name="dataSource" ref="dataSource"/>
 	</bean>
 	
-	<!-- 配置dao层接口扫描: 方式1  
-	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+	<!-- 配置dao层接口扫描: 方式1  -->
+	<bean class="tk.mybatis.spring.mapper.MapperScannerConfigurer">
 		<property name="basePackage" value="cn.itcast.mapper"></property>
 	</bean>
-	-->
 	
-	<!-- 配置dao层接口扫描： 方式2 -->
+	
+	<!-- 配置dao层接口扫描： 方式2 
 	<mybatis-spring:scan base-package="cn.itcast.mapper"/>
+	-->
 	
 	
 	<!-- 配置一下spring bean注解支持 -->

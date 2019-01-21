@@ -10,8 +10,8 @@
 		<mybatis.version>3.4.2</mybatis.version>
 		<mysql.driver.version>8.0.12</mysql.driver.version>
 		<!-- <mybatisPlus.version>3.0-RELEASE</mybatisPlus.version> -->
-		<!-- <pageHelper.version>5.1.8</pageHelper.version> -->
-		<!-- <tk.mapper.version>4.1.0</tk.mapper.version> -->
+		<pageHelper.version>5.1.8</pageHelper.version>
+		<tk.mapper.version>4.1.0</tk.mapper.version> 
 	</properties>
 
 	<dependencies>
@@ -225,6 +225,29 @@
 			<version>2.3.1</version>
 			<scope>provided</scope>
 		</dependency>
+		
+		<!-- 通用Mapper 的jar 包-->
+		<dependency>
+			<groupId>tk.mybatis</groupId>
+			<artifactId>mapper</artifactId>
+			<version>${tk.mapper.version}</version>
+		</dependency> 
+		
+		
+		<!-- PageHelper 需要的 jar 包 -->
+		<dependency>
+			<groupId>com.github.pagehelper</groupId>
+			<artifactId>pagehelper</artifactId>
+			<version>${pageHelper.version}</version>
+		</dependency>
+		
+		<!-- springmvc 使用Hibernate validator 校验框架 -->
+		<dependency>
+		    <groupId>org.hibernate</groupId>
+		    <artifactId>hibernate-validator</artifactId>
+		    <version>5.2.0.Final</version>
+		</dependency>
+		
 	</dependencies>
   	<!-- 添加comcat 插件 和  jdk 插件 -->
 	<build>
