@@ -85,4 +85,20 @@
 			<property name="paramName" value="lang"/>
 		</bean>
 	</mvc:interceptors>
+	
+	<!-- 配置 SimpleMappingExceptionResolver -->
+	<bean class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
+		<!-- 设置指定异常类型要跳转到哪一个页面 -->
+		<property name="exceptionMappings">
+			<props>
+				<prop key="java.lang.ArrayIndexOutOfBoundsException">exceptionPage</prop>
+			</props>
+		</property>
+		
+		<!-- 设置保存异常对象对应的 key 值, 如果不设置的话，默认是使用exception
+		     也就是说，我们可以在 jsp 页面上面通过   ${requestScope.exception } 获取到异常信息
+		    当然，这里设置了以后，就需要使用   ${requestScope.error }  去获取了
+		 -->
+		<property name="exceptionAttribute" value="error"></property>
+	</bean>
 </beans>
