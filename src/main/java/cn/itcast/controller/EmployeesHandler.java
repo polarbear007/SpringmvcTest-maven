@@ -18,6 +18,11 @@ public class EmployeesHandler {
 	@Autowired
 	private EmployeesServiceImpl employeesServiceImpl;
 	
+	public EmployeesHandler() {
+		super();
+		System.out.println("EmployeesHandler 构造方法执行了.....");
+	}
+
 	@RequestMapping("/findAll")
 	public String findAll(@RequestParam(defaultValue="1") Integer currentPage, Model mode) {
 		Page<Employees> page = PageHelper.startPage(currentPage, 10);

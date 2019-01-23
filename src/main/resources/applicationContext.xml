@@ -49,10 +49,12 @@
 	<mybatis-spring:scan base-package="cn.itcast.mapper"/>
 	-->
 	
-	
 	<!-- 配置一下spring bean注解支持 -->
-	<context:annotation-config />
-	<context:component-scan base-package="cn.itcast" />
+	<context:annotation-config /> 
+	<context:component-scan base-package="cn.itcast" use-default-filters="false">
+		<context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+		<context:exclude-filter type="annotation" expression="org.springframework.web.bind.annotation.ControllerAdvice"/>
+	</context:component-scan>
 	
 	<!-- 配置一下事务注解支持 -->
 	<tx:annotation-driven transaction-manager="transactionManager"/>
