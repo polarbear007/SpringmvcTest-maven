@@ -51,7 +51,7 @@
 	
 	<!-- 配置一下spring bean注解支持 -->
 	<context:annotation-config /> 
-	<context:component-scan base-package="cn.itcast" use-default-filters="false">
+	<context:component-scan base-package="cn.itcast">
 		<context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
 		<context:exclude-filter type="annotation" expression="org.springframework.web.bind.annotation.ControllerAdvice"/>
 	</context:component-scan>
