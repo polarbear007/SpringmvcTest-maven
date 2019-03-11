@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import cn.itcast.entity.User;
 
@@ -27,6 +28,7 @@ import cn.itcast.entity.User;
 @Controller
 @RequestMapping("/rest")
 public class RestHandler {
+	@ResponseBody
 	@RequestMapping("/test")
 	public String test() {
 		System.out.println("RestHandler test");

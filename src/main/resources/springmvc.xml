@@ -87,6 +87,7 @@
 			<!-- 设置语言参数名，如果我们不设置的话，默认是  locale -->
 			<property name="paramName" value="lang"/>
 		</bean>
+		<bean class="cn.itcast.interceptor.MyInterceptor"></bean>
 	</mvc:interceptors>
 	
 	<!-- 配置 SimpleMappingExceptionResolver -->
